@@ -31,7 +31,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value="User"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="bdb91" class="javax.swing.JPasswordField" binding="passwordPasswordField" default-binding="true">
@@ -41,7 +41,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value="password"/>
+              <text value=""/>
             </properties>
           </component>
           <hspacer id="a9c42">

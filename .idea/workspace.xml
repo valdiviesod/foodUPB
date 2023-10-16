@@ -4,17 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e14af69c-8617-452a-8d3b-bade9bc4ba15" name="Changes" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-j-8.1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/protobuf-java-3.21.9.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/admin/usuarios.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/admin/usuarios.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/databaseConexion/dbTests.java" afterDir="false" />
+    <list default="true" id="e14af69c-8617-452a-8d3b-bade9bc4ba15" name="Changes" comment="Ahi vamo 2">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_0_33.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/foodUPB.iml" beforeDir="false" afterPath="$PROJECT_DIR$/foodUPB.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/adminForm.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/adminForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/usuarios.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/usuarios.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/usuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/usuarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/databaseConexion/dbTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/databaseConexion/dbTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/loginForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/loginForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/loginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/loginForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,11 +47,26 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/v4ld1/Downloads/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33.jar",
     "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="foodUPB" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -69,11 +84,21 @@
       <option name="project" value="LOCAL" />
       <updated>1697478543978</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Ahi vamo 2">
+      <option name="closed" value="true" />
+      <created>1697488307360</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1697488307360</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="Ahi vamo" />
+    <MESSAGE value="Ahi vamo 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ahi vamo 2" />
   </component>
 </project>
