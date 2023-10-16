@@ -1,20 +1,20 @@
-import user.loginForm;
-
 import javax.swing.*;
+import user.loginForm;
 
 public class Main {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                JFrame frame = new JFrame("Login"); // Título de la ventana
-                loginForm loginForm = new loginForm(); // Instancia de la clase loginForm
+                JFrame frame = new JFrame("Login Form");
+
+                loginForm loginView = new loginForm();
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-                // Establecer el tamaño de la ventana
-                frame.setSize(800, 600);
+                // Agregar el panel de la vista al JFrame
+                frame.getContentPane().add(loginView.getPanel1());
 
-                // Hacer que la ventana sea visible
+                frame.setSize(800, 400); // Establecer el tamaño adecuado
                 frame.setVisible(true);
             }
         });
