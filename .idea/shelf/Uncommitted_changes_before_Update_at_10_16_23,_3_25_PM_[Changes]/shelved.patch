@@ -1,0 +1,399 @@
+Index: src/admin/adminForm.java
+===================================================================
+diff --git a/src/admin/adminForm.java b/src/admin/adminForm.java
+deleted file mode 100644
+--- a/src/admin/adminForm.java	(revision 9add9288db500e04250d5763e95a334728626ed0)
++++ /dev/null	(revision 9add9288db500e04250d5763e95a334728626ed0)
+@@ -1,4 +0,0 @@
+-package admin;
+-
+-public class adminForm {
+-}
+Index: src/admin/usuarios.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/admin/usuarios.java b/src/admin/usuarios.java
+new file mode 100644
+--- /dev/null	(date 1697487666827)
++++ b/src/admin/usuarios.java	(date 1697487666827)
+@@ -0,0 +1,16 @@
++package admin;
++
++import javax.swing.*;
++
++public class usuarios {
++    private JTextField fieldIdUsuario;
++    private JTextField fieldNombreUsuario;
++    private JTextField fieldContraUsuario;
++    private JTextField fieldTipoUsuario;
++    private JButton editarNombreUButton;
++    private JButton editarContraButton;
++    private JButton editarTipoButton;
++    private JButton anadirUsuarioButton;
++    private JButton eliminarUsuarioButton;
++    private JTable table1;
++}
+Index: foodUPB.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<module type=\"JAVA_MODULE\" version=\"4\">\n  <component name=\"NewModuleRootManager\" inherit-compiler-output=\"true\">\n    <exclude-output />\n    <content url=\"file://$MODULE_DIR$\">\n      <sourceFolder url=\"file://$MODULE_DIR$/src\" isTestSource=\"false\" />\n    </content>\n    <orderEntry type=\"inheritedJdk\" />\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\n  </component>\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/foodUPB.iml b/foodUPB.iml
+--- a/foodUPB.iml	(revision 9add9288db500e04250d5763e95a334728626ed0)
++++ b/foodUPB.iml	(date 1697485683833)
+@@ -7,5 +7,6 @@
+     </content>
+     <orderEntry type="inheritedJdk" />
+     <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="library" name="mysql.connector.j" level="project" />
+   </component>
+ </module>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"e14af69c-8617-452a-8d3b-bade9bc4ba15\" name=\"Changes\" comment=\"first commit\">\n      <change afterPath=\"$PROJECT_DIR$/src/Main.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/user/login.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2Wr6kRVBpUIP1lNbydlZmF46DgC\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"project.structure.last.edited\": \"Libraries\",\n    \"project.structure.proportion\": \"0.0\",\n    \"project.structure.side.proportion\": \"0.0\"\n  }\n}]]></component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"e14af69c-8617-452a-8d3b-bade9bc4ba15\" name=\"Changes\" comment=\"\" />\n      <created>1697478495424</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1697478495424</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"first commit\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1697478543978</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1697478543978</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"2\" />\n    <servers />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"first commit\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"first commit\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 9add9288db500e04250d5763e95a334728626ed0)
++++ b/.idea/workspace.xml	(date 1697486679959)
+@@ -4,10 +4,15 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="e14af69c-8617-452a-8d3b-bade9bc4ba15" name="Changes" comment="first commit">
+-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/user/login.java" afterDir="false" />
++    <list default="true" id="e14af69c-8617-452a-8d3b-bade9bc4ba15" name="Changes" comment="Ahi vamo">
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-j-8.1.0.jar" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/lib/protobuf-java-3.21.9.jar" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/admin/usuarios.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/foodUPB.iml" beforeDir="false" afterPath="$PROJECT_DIR$/foodUPB.iml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/admin/adminForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/usuarios.form" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/admin/adminForm.java" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -23,20 +28,43 @@
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="GitHubPullRequestSearchHistory">{
++  &quot;lastFilter&quot;: {
++    &quot;state&quot;: &quot;OPEN&quot;
++  }
++}</component>
++  <component name="GithubPullRequestsUISettings">
++    <option name="selectedUrlAndAccountId">
++      <UrlAndAccount>
++        <option name="accountId" value="242bdca2-cc46-41ab-b9aa-d1dc89f54d90" />
++        <option name="url" value="https://github.com/valdiviesod/foodUPB" />
++      </UrlAndAccount>
++    </option>
+   </component>
+   <component name="ProjectId" id="2Wr6kRVBpUIP1lNbydlZmF46DgC" />
+-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <ConfirmationsSetting value="2" id="Add" />
++  </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
++    "ASKED_ADD_EXTERNAL_FILES": "true",
++    "Downloaded.Files.Path.Enabled": "true",
++    "Repository.Attach.Annotations": "false",
++    "Repository.Attach.JavaDocs": "false",
++    "Repository.Attach.Sources": "false",
+     "RunOnceActivity.OpenProjectViewOnStart": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "177",
++    "last_opened_file_path": "/home/v4ld1/foodUPB",
+     "project.structure.last.edited": "Libraries",
+-    "project.structure.proportion": "0.0",
+-    "project.structure.side.proportion": "0.0"
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.2"
+   }
+ }]]></component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+@@ -56,11 +84,32 @@
+       <option name="project" value="LOCAL" />
+       <updated>1697478543978</updated>
+     </task>
+-    <option name="localTasksCounter" value="2" />
++    <task id="LOCAL-00002" summary="Ahi vamo">
++      <option name="closed" value="true" />
++      <created>1697479350185</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1697479350185</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
+   </component>
+   <component name="VcsManagerConfiguration">
++    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+     <MESSAGE value="first commit" />
+-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
++    <MESSAGE value="Ahi vamo" />
++    <option name="LAST_COMMIT_MESSAGE" value="Ahi vamo" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/admin/adminForm.form
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/admin/adminForm.form b/src/admin/usuarios.form
+rename from src/admin/adminForm.form
+rename to src/admin/usuarios.form
+--- a/src/admin/adminForm.form	(revision 9add9288db500e04250d5763e95a334728626ed0)
++++ b/src/admin/usuarios.form	(date 1697487666803)
+@@ -1,13 +1,191 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="admin.adminForm">
+-  <grid id="27dc6" row-count="1" column-count="1" layout-manager="GridLayoutManager">
++<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="admin.usuarios">
++  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+     <margin top="0" left="0" bottom="0" right="0"/>
+     <constraints>
+-      <xy x="20" y="20" width="500" height="400"/>
+-      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+-    </constraints>
+-    <properties/>
+-    <border type="none"/>
+-    <children/>
++      <xy x="20" y="20" width="633" height="356"/>
++    </constraints>
++    <properties/>
++    <border type="none"/>
++    <children>
++      <grid id="e951a" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
++        <margin top="0" left="0" bottom="0" right="0"/>
++        <constraints>
++          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
++        </constraints>
++        <properties/>
++        <border type="none"/>
++        <children>
++          <hspacer id="2a0b8">
++            <constraints>
++              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
++            </constraints>
++          </hspacer>
++          <grid id="461ff" layout-manager="GridLayoutManager" row-count="5" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
++            <margin top="0" left="0" bottom="0" right="0"/>
++            <constraints>
++              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
++            </constraints>
++            <properties/>
++            <border type="none"/>
++            <children>
++              <vspacer id="81757">
++                <constraints>
++                  <grid row="1" column="1" row-span="2" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
++                </constraints>
++              </vspacer>
++              <component id="56e38" class="javax.swing.JLabel">
++                <constraints>
++                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
++                </constraints>
++                <properties>
++                  <text value="ID"/>
++                </properties>
++              </component>
++              <component id="5d66f" class="javax.swing.JLabel">
++                <constraints>
++                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
++                </constraints>
++                <properties>
++                  <text value="Nombre de usuario"/>
++                </properties>
++              </component>
++              <component id="9d0c" class="javax.swing.JLabel">
++                <constraints>
++                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
++                </constraints>
++                <properties>
++                  <text value="Tipo"/>
++                </properties>
++              </component>
++              <component id="d2273" class="javax.swing.JLabel">
++                <constraints>
++                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
++                </constraints>
++                <properties>
++                  <text value="Contraseña"/>
++                </properties>
++              </component>
++              <component id="cadbd" class="javax.swing.JTextField" binding="fieldIdUsuario">
++                <constraints>
++                  <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
++                    <preferred-size width="150" height="-1"/>
++                  </grid>
++                </constraints>
++                <properties/>
++              </component>
++              <component id="593d2" class="javax.swing.JTextField" binding="fieldNombreUsuario">
++                <constraints>
++                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
++                    <preferred-size width="150" height="-1"/>
++                  </grid>
++                </constraints>
++                <properties/>
++              </component>
++              <component id="1ac1a" class="javax.swing.JTextField" binding="fieldContraUsuario">
++                <constraints>
++                  <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
++                    <preferred-size width="150" height="-1"/>
++                  </grid>
++                </constraints>
++                <properties/>
++              </component>
++              <component id="98cbb" class="javax.swing.JTextField" binding="fieldTipoUsuario">
++                <constraints>
++                  <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
++                    <preferred-size width="150" height="-1"/>
++                  </grid>
++                </constraints>
++                <properties/>
++              </component>
++              <component id="c79da" class="javax.swing.JButton" binding="editarNombreUButton">
++                <constraints>
++                  <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
++                </constraints>
++                <properties>
++                  <text value="Editar"/>
++                </properties>
++              </component>
++              <component id="3d44e" class="javax.swing.JButton" binding="editarContraButton">
++                <constraints>
++                  <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
++                </constraints>
++                <properties>
++                  <text value="Editar"/>
++                </properties>
++              </component>
++              <component id="8e777" class="javax.swing.JButton" binding="editarTipoButton">
++                <constraints>
++                  <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
++                </constraints>
++                <properties>
++                  <text value="Editar"/>
++                </properties>
++              </component>
++              <component id="1290e" class="javax.swing.JLabel">
++                <constraints>
++                  <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
++                </constraints>
++                <properties>
++                  <text value="Administración de Usuarios"/>
++                </properties>
++              </component>
++              <component id="d1776" class="javax.swing.JButton" binding="anadirUsuarioButton">
++                <constraints>
++                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
++                </constraints>
++                <properties>
++                  <text value="Añadir Usuario"/>
++                </properties>
++              </component>
++              <component id="e9b93" class="javax.swing.JButton" binding="eliminarUsuarioButton" default-binding="true">
++                <constraints>
++                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
++                </constraints>
++                <properties>
++                  <text value="Eliminar Usuario"/>
++                </properties>
++              </component>
++            </children>
++          </grid>
++          <grid id="b4779" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
++            <margin top="0" left="0" bottom="0" right="0"/>
++            <constraints>
++              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
++            </constraints>
++            <properties/>
++            <border type="none"/>
++            <children>
++              <component id="489e9" class="javax.swing.JLabel">
++                <constraints>
++                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
++                </constraints>
++                <properties>
++                  <text value="Detalle"/>
++                </properties>
++              </component>
++              <hspacer id="f72ed">
++                <constraints>
++                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
++                </constraints>
++              </hspacer>
++              <vspacer id="8d54e">
++                <constraints>
++                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
++                </constraints>
++              </vspacer>
++              <component id="cf600" class="javax.swing.JTable" binding="table1" default-binding="true">
++                <constraints>
++                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
++                    <preferred-size width="150" height="50"/>
++                  </grid>
++                </constraints>
++                <properties/>
++              </component>
++            </children>
++          </grid>
++        </children>
++      </grid>
++    </children>
+   </grid>
+ </form>
+Index: .idea/libraries/mysql_connector_j.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/mysql_connector_j.xml b/.idea/libraries/mysql_connector_j.xml
+new file mode 100644
+--- /dev/null	(date 1697485683856)
++++ b/.idea/libraries/mysql_connector_j.xml	(date 1697485683856)
+@@ -0,0 +1,11 @@
++<component name="libraryTable">
++  <library name="mysql.connector.j" type="repository">
++    <properties maven-id="com.mysql:mysql-connector-j:8.1.0" />
++    <CLASSES>
++      <root url="jar://$PROJECT_DIR$/lib/mysql-connector-j-8.1.0.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/protobuf-java-3.21.9.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++  </library>
++</component>
+\ No newline at end of file
