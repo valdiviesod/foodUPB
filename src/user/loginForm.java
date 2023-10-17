@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import admin.usuarios;
+import operador.buscarNumero;
 
 public class loginForm {
     private JPanel panel1;
@@ -26,7 +27,10 @@ public class loginForm {
                 String contrasenaIngresada = new String(passwordPasswordField.getPassword());
 
                 if (verificarCredenciales(usuarioIngresado, contrasenaIngresada)) {
-                    if (usuarioIngresado.toLowerCase().endsWith("@admin.com")) {
+                    if (usuarioIngresado.toLowerCase().endsWith("@operador.com")) {
+                        // Redirigir al usuario a la ventana buscarNumero
+                        abrirVistaBuscarNumero();
+                    } else if (usuarioIngresado.toLowerCase().endsWith("@admin.com")) {
                         // Redirigir al usuario a la ventana de usuarios
                         abrirVistaUsuarios();
                     } else {
@@ -68,6 +72,26 @@ public class loginForm {
 
         return false;
     }
+
+    private void abrirVistaBuscarNumero() {
+        // Obtiene la ventana actual
+        Window window = SwingUtilities.windowForComponent(panel1);
+
+        if (window instanceof JFrame) {
+            // Cierra la ventana actual
+            ((JFrame) window).dispose();
+        }
+
+        buscarNumero buscarNumeroView = new buscarNumero();
+        JFrame frame = new JFrame("Vista de Búsqueda de Número");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
+        frame.setContentPane(buscarNumeroView.getPanel());
+        frame.pack();
+        frame.setSize(800, 400); // Establece el tamaño deseado
+        frame.setVisible(true);
+    }
+
+
     private void abrirVistaUsuarios() {
         // Obtiene la ventana actual
         Window window = SwingUtilities.windowForComponent(panel1);
