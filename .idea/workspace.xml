@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e14af69c-8617-452a-8d3b-bade9bc4ba15" name="Changes" comment="Sirve todo el crud y el añadir en proceso">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/usuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/usuarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/databaseConexion/dbConexion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/databaseConexion/dbTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/databaseConexion/dbTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user/loginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/loginForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/clientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/clientes.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +42,7 @@
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;152&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/felix/Downloads/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33.jar&quot;,
@@ -96,6 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1697478495424</updated>
       <workItem from="1697502753543" duration="3631000" />
+      <workItem from="1697514999223" duration="33000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
