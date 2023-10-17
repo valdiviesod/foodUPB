@@ -1,5 +1,6 @@
 package user;
 
+import java.awt.Window;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import databaseConexion.dbConexion;
-//import databaseConexion.dbTests;
+import admin.usuarios;
 
 public class loginForm {
     private JPanel panel1;
@@ -24,7 +25,12 @@ public class loginForm {
                 String contrasenaIngresada = new String(passwordPasswordField.getPassword());
 
                 if (verificarCredenciales(usuarioIngresado, contrasenaIngresada)) {
-                    JOptionPane.showMessageDialog(null, "Acceso concedido");
+                    if (usuarioIngresado.toLowerCase().endsWith("@admin.com")) {
+                        // Redirigir al usuario a la ventana de usuarios
+                        abrirVistaUsuarios();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Acceso concedido");
+                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "Credenciales incorrectas");
                 }
@@ -60,5 +66,23 @@ public class loginForm {
         }
 
         return false;
+    }
+    private void abrirVistaUsuarios() {
+        // Obtiene la ventana actual
+        Window window = SwingUtilities.windowForComponent(panel1);
+
+        if (window instanceof JFrame) {
+            // Cierra la ventana actual
+            ((JFrame) window).dispose();
+        }
+
+        // Crea una instancia de la vista "usuarios" y la muestra
+        usuarios usuariosView = new usuarios();
+        JFrame frame = new JFrame("Vista de Usuarios");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
+        frame.setContentPane(usuariosView.getPanel());
+        frame.pack();
+        frame.setSize(800, 400); // Establece el tamaño deseado
+        frame.setVisible(true);
     }
 }
