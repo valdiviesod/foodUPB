@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class dbTests {
     private static final String URL = "jdbc:mysql://172.17.0.1:3306/foodupb";
     private static final String USUARIO = "root";
-    private static final String CONTRASEÑA = "Foodupb_";
+    private static final String CONTRASEÑA = "1629";
 
     public static Connection obtenerConexion() {
         try {
