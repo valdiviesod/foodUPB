@@ -1,6 +1,6 @@
 package operador;
 
-import databaseConexion.dbTests;
+import databaseConexion.dbConexion;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -44,7 +44,7 @@ public class realizarPedido {
     }
 
     private void cargarMenusDesdeBaseDeDatos() {
-        Connection conexion = dbTests.obtenerConexion();
+        Connection conexion = dbConexion.obtenerConexion();
 
         if (conexion != null) {
             try {
@@ -69,7 +69,7 @@ public class realizarPedido {
     }
 
     private void cargarProductosDesdeBaseDeDatos() {
-        Connection conexion = dbTests.obtenerConexion();
+        Connection conexion = dbConexion.obtenerConexion();
 
         if (conexion != null) {
             try {
@@ -101,7 +101,7 @@ public class realizarPedido {
             return;
         }
 
-        Connection conexion = dbTests.obtenerConexion();
+        Connection conexion = dbConexion.obtenerConexion();
 
         if (conexion != null) {
             try {

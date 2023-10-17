@@ -1,6 +1,6 @@
 package admin;
 
-import databaseConexion.dbTests;
+import databaseConexion.dbConexion;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,7 +31,7 @@ public class crearCliente {
     }
 
     public void añadirClienteABaseDeDatos() {
-        Connection conexion = dbTests.obtenerConexion();
+        Connection conexion = dbConexion.obtenerConexion();
         if (conexion == null) {
             return;
         }

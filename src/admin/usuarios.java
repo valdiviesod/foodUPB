@@ -1,12 +1,7 @@
 package admin;
-<<<<<<< HEAD
+
 import databaseConexion.dbConexion;
 
-
-=======
-
-import databaseConexion.dbTests;
->>>>>>> 6f4e2c3d6a95b0cb49b1f6e199635fc5d42a97b5
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -16,8 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class usuarios {
     private JTextField fieldIdUsuario;
@@ -103,7 +98,7 @@ public class usuarios {
     }
 
     public void cargarDatosEnJTable() {
-        Connection conexion = dbTests.obtenerConexion();
+        Connection conexion = dbConexion.obtenerConexion();
         if (conexion == null) {
             return;
         }
@@ -141,7 +136,7 @@ public class usuarios {
     }
 
     public void guardarCambiosEnBaseDeDatos() {
-        Connection conexion = dbTests.obtenerConexion();
+        Connection conexion = dbConexion.obtenerConexion();
         if (conexion == null) {
             return;
         }
@@ -174,7 +169,7 @@ public class usuarios {
     }
 
     public void eliminarUsuarioSeleccionado() {
-        Connection conexion = dbTests.obtenerConexion();
+        Connection conexion = dbConexion.obtenerConexion();
         if (conexion == null) {
             return;
         }

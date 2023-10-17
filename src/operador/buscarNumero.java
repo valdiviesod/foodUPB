@@ -1,5 +1,7 @@
 package operador;
 
+import databaseConexion.dbConexion;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,7 +9,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import databaseConexion.dbTests;
 
 public class buscarNumero {
     private JPanel panel1;
@@ -36,7 +37,7 @@ public class buscarNumero {
     }
 
     private boolean verificarNumeroEnBaseDeDatos(String numero) {
-        Connection conexion = dbTests.obtenerConexion();
+        Connection conexion = dbConexion.obtenerConexion();
 
         if (conexion != null) {
             try {

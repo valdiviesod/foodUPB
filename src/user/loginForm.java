@@ -1,6 +1,5 @@
 package user;
 
-import databaseConexion.dbTests;
 import java.awt.Window;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -11,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import admin.usuarios;
+import databaseConexion.dbConexion;
 import operador.buscarNumero;
 
 public class loginForm {
@@ -48,7 +48,7 @@ public class loginForm {
     }
 
     private boolean verificarCredenciales(String usuario, String contrasena) {
-        Connection conexion = dbTests.obtenerConexion();
+        Connection conexion = dbConexion.obtenerConexion();
 
         if (conexion != null) {
             try {

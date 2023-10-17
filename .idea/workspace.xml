@@ -4,9 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e14af69c-8617-452a-8d3b-bade9bc4ba15" name="Changes" comment="Sirve todo el crud y el añadir en proceso">
+    <list default="true" id="e14af69c-8617-452a-8d3b-bade9bc4ba15" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/databaseConexion/dbConexion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/clientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/clientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/crearCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/crearCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/crearUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/crearUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/usuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/usuarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/databaseConexion/dbTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/operador/buscarNumero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/operador/buscarNumero.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/operador/realizarPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/operador/realizarPedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/loginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/loginForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,6 +153,6 @@
     <MESSAGE value="Ahi vamo 2" />
     <MESSAGE value="Ahi vamo con el CRUD" />
     <MESSAGE value="Sirve todo el crud y el añadir en proceso" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sirve todo el crud y el añadir en proceso" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>

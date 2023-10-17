@@ -1,6 +1,6 @@
 package admin;
 
-import databaseConexion.dbTests;
+import databaseConexion.dbConexion;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,7 +27,7 @@ public class crearUsuario {
     }
 
     public void añadirUsuarioABaseDeDatos() {
-        Connection conexion = dbTests.obtenerConexion();
+        Connection conexion = dbConexion.obtenerConexion();
         if (conexion == null) {
             return;
         }
