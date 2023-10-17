@@ -1,6 +1,10 @@
 package admin;
 
+<<<<<<< HEAD
+import databaseConexion.dbTests;
+=======
 import databaseConexion.dbConexion;
+>>>>>>> 8fa28dc6b10dbd1e7f8c093bfd3d173eeeeb671f
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -26,6 +30,9 @@ public class usuarios {
     private JTable tablaUsuarios;
     private JPanel mainPanel;
     private JScrollBar scrollBar1;
+    private JButton clientesButton;
+    private JButton irAPedidosButton;
+    private JButton irAProductosButton;
 
     public usuarios() {
         cargarDatosEnJTable();
@@ -78,7 +85,20 @@ public class usuarios {
             }
         });
 
+        clientesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Crear una instancia de la clase clientes
+                clientes clientesView = new clientes();
 
+                // Crear un JFrame para mostrar la vista de clientes
+                JFrame clientesFrame = new JFrame("Clientes");
+                clientesFrame.setContentPane(clientesView.getPanel());
+                clientesFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
+                clientesFrame.pack();
+                clientesFrame.setVisible(true);
+            }
+        });
     }
 
     public void cargarDatosEnJTable() {
