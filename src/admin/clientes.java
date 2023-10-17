@@ -28,4 +28,7 @@ public class clientes {
     private JTable clientesTable;
     private JPanel mainPanel;
 
+    public Container getPanel() {
+        return mainPanel;
+    }
 }

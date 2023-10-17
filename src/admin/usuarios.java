@@ -1,10 +1,6 @@
 package admin;
-
-<<<<<<< HEAD
-import databaseConexion.dbTests;
-=======
 import databaseConexion.dbConexion;
->>>>>>> 8fa28dc6b10dbd1e7f8c093bfd3d173eeeeb671f
+
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
