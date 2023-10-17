@@ -1,7 +1,12 @@
 package admin;
+<<<<<<< HEAD
 import databaseConexion.dbConexion;
 
 
+=======
+
+import databaseConexion.dbTests;
+>>>>>>> 6f4e2c3d6a95b0cb49b1f6e199635fc5d42a97b5
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -98,7 +103,7 @@ public class usuarios {
     }
 
     public void cargarDatosEnJTable() {
-        Connection conexion = dbConexion.obtenerConexion();
+        Connection conexion = dbTests.obtenerConexion();
         if (conexion == null) {
             return;
         }
@@ -136,7 +141,7 @@ public class usuarios {
     }
 
     public void guardarCambiosEnBaseDeDatos() {
-        Connection conexion = dbConexion.obtenerConexion();
+        Connection conexion = dbTests.obtenerConexion();
         if (conexion == null) {
             return;
         }
@@ -169,7 +174,7 @@ public class usuarios {
     }
 
     public void eliminarUsuarioSeleccionado() {
-        Connection conexion = dbConexion.obtenerConexion();
+        Connection conexion = dbTests.obtenerConexion();
         if (conexion == null) {
             return;
         }
