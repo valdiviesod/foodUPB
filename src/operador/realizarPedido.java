@@ -25,6 +25,7 @@ public class realizarPedido {
     }
 
     public realizarPedido() {
+        cargarMenusDesdeBaseDeDatos(); // Cargar menús al inicio
         cargarProductosDesdeBaseDeDatos(); // Cargar productos al inicio
 
         buscarButton.addActionListener(new ActionListener() {
@@ -40,6 +41,31 @@ public class realizarPedido {
                 cargarProductosDesdeBaseDeDatos(); // Cargar productos nuevamente
             }
         });
+    }
+
+    private void cargarMenusDesdeBaseDeDatos() {
+        Connection conexion = dbTests.obtenerConexion();
+
+        if (conexion != null) {
+            try {
+                String consulta = "SELECT idmenu, nombre_menu, valor_menu FROM menu";
+                PreparedStatement ps = conexion.prepareStatement(consulta);
+                ResultSet rs = ps.executeQuery();
+
+                textArea1.setText(""); // Limpia el textArea1
+
+                while (rs.next()) {
+                    int idMenu = rs.getInt("idmenu");
+                    String nombreMenu = rs.getString("nombre_menu");
+                    double valorMenu = rs.getDouble("valor_menu");
+                    textArea1.append(idMenu + ": " + nombreMenu + ": $" + valorMenu + "\n");
+                }
+
+                conexion.close();
+            } catch (SQLException e) {
+                System.err.println("Error al cargar menús desde la base de datos: " + e.getMessage());
+            }
+        }
     }
 
     private void cargarProductosDesdeBaseDeDatos() {
