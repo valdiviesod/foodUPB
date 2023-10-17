@@ -12,7 +12,6 @@ import java.sql.Statement;
 
 public class crearUsuario {
     private JButton añadirButton;
-    private JTextField idText;
     private JTextField usuarioText;
     private JTextField contraText;
     private JTextField tipoText;

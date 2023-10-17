@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e14af69c-8617-452a-8d3b-bade9bc4ba15" name="Changes" comment="Ahi vamo con el CRUD">
-      <change afterPath="$PROJECT_DIR$/src/admin/crearUsuario.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/admin/crearUsuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/usuarios.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/usuarios.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/usuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/usuarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/databaseConexion/dbTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/databaseConexion/dbTests.java" afterDir="false" />
+    <list default="true" id="e14af69c-8617-452a-8d3b-bade9bc4ba15" name="Changes" comment="Sirve todo el crud y el añadir en proceso">
+      <change beforePath="$PROJECT_DIR$/src/admin/crearUsuario.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/crearUsuario.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/crearUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/crearUsuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +96,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697492332398</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Sirve todo el crud y el añadir en proceso">
+      <option name="closed" value="true" />
+      <created>1697501705500</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1697501705501</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -111,6 +115,7 @@
     <MESSAGE value="Ahi vamo" />
     <MESSAGE value="Ahi vamo 2" />
     <MESSAGE value="Ahi vamo con el CRUD" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ahi vamo con el CRUD" />
+    <MESSAGE value="Sirve todo el crud y el añadir en proceso" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sirve todo el crud y el añadir en proceso" />
   </component>
 </project>
