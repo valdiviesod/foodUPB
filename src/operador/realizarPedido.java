@@ -1,7 +1,6 @@
 package operador;
 
 import databaseConexion.dbConexion;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,10 +8,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class realizarPedido {
     private JTextArea textArea1;
-    private JButton realizarPedidoButton;
+    private JButton agregarButton;
     private JTextField textField2;
     private JTextArea textArea2;
     private JPanel jpanel1;
@@ -20,14 +21,17 @@ public class realizarPedido {
     private JButton mostrarProductosButton;
     private JTextField textField1;
     private JTextArea textArea3;
+    private JTextField textField3;
+    private JButton limpiarButton;
+    private double totalAcumulado = 0.0;
+    private Map<String, Double> productosAgregados = new HashMap<>();
 
     public JPanel getPanel() {
         return jpanel1;
     }
 
     public realizarPedido() {
-        cargarMenusDesdeBaseDeDatos(); // Cargar menús al inicio
-        cargarProductosDesdeBaseDeDatos(); // Cargar productos al inicio
+        cargarProductosDesdeBaseDeDatos();
 
         buscarButton.addActionListener(new ActionListener() {
             @Override
@@ -39,34 +43,23 @@ public class realizarPedido {
         mostrarProductosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cargarProductosDesdeBaseDeDatos(); // Cargar productos nuevamente
+                cargarProductosDesdeBaseDeDatos();
             }
         });
-    }
 
-    private void cargarMenusDesdeBaseDeDatos() {
-        Connection conexion = dbConexion.obtenerConexion();
-
-        if (conexion != null) {
-            try {
-                String consulta = "SELECT idmenu, nombre_menu, valor_menu FROM menu";
-                PreparedStatement ps = conexion.prepareStatement(consulta);
-                ResultSet rs = ps.executeQuery();
-
-                textArea1.setText(""); // Limpia el textArea1
-
-                while (rs.next()) {
-                    int idMenu = rs.getInt("idmenu");
-                    String nombreMenu = rs.getString("nombre_menu");
-                    double valorMenu = rs.getDouble("valor_menu");
-                    textArea1.append(idMenu + ": " + nombreMenu + ": $" + valorMenu + "\n");
-                }
-
-                conexion.close();
-            } catch (SQLException e) {
-                System.err.println("Error al cargar menús desde la base de datos: " + e.getMessage());
+        agregarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                agregarProductoAPedido();
             }
-        }
+        });
+
+        limpiarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                limpiarTextArea3();
+            }
+        });
     }
 
     private void cargarProductosDesdeBaseDeDatos() {
@@ -78,7 +71,7 @@ public class realizarPedido {
                 PreparedStatement ps = conexion.prepareStatement(consulta);
                 ResultSet rs = ps.executeQuery();
 
-                textArea2.setText(""); // Limpia el textArea2
+                textArea2.setText("");
 
                 while (rs.next()) {
                     int idProducto = rs.getInt("idproductos");
@@ -109,11 +102,11 @@ public class realizarPedido {
                 String consulta = "SELECT idproductos, nombre_producto, valor_producto FROM productos " +
                         "WHERE nombre_producto LIKE ?";
                 PreparedStatement ps = conexion.prepareStatement(consulta);
-                ps.setString(1, "%" + textoBuscado + "%"); // Agrega el comodín % para buscar en cualquier posición
+                ps.setString(1, "%" + textoBuscado + "%");
 
                 ResultSet rs = ps.executeQuery();
 
-                textArea2.setText(""); // Limpia el textArea2
+                textArea2.setText("");
 
                 while (rs.next()) {
                     int idProducto = rs.getInt("idproductos");
@@ -127,6 +120,75 @@ public class realizarPedido {
                 System.err.println("Error al buscar productos en la base de datos: " + e.getMessage());
             }
         }
+    }
+
+    private void agregarProductoAPedido() {
+        String producto = textField1.getText();
+        String cantidadText = textField3.getText();
+
+        if (producto.isEmpty() || cantidadText.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos.");
+            return;
+        }
+
+        int cantidad = Integer.parseInt(cantidadText);
+        double valorProducto = buscarValorProducto(producto);
+
+        if (valorProducto == -1.0) {
+            JOptionPane.showMessageDialog(null, "Producto no encontrado en la base de datos.");
+            return;
+        }
+
+        double totalProducto = valorProducto * cantidad;
+
+        if (productosAgregados.containsKey(producto)) {
+            cantidad += productosAgregados.get(producto);
+            totalProducto += productosAgregados.get(producto) * valorProducto;
+            totalAcumulado -= productosAgregados.get(producto) * valorProducto;
+        }
+
+        productosAgregados.put(producto, totalProducto);
+        totalAcumulado += totalProducto;
+
+        textArea3.setText("");
+
+        for (Map.Entry<String, Double> entry : productosAgregados.entrySet()) {
+            textArea3.append("Producto: " + entry.getKey() + ", Cantidad: " + cantidad + ", Total: $" + entry.getValue() + "\n");
+        }
+
+        textArea3.append("Total acumulado: $" + totalAcumulado + "\n");
+    }
+
+    private double buscarValorProducto(String nombreProducto) {
+        Connection conexion = dbConexion.obtenerConexion();
+
+        if (conexion != null) {
+            try {
+                String consulta = "SELECT valor_producto FROM productos WHERE nombre_producto = ?";
+                PreparedStatement ps = conexion.prepareStatement(consulta);
+                ps.setString(1, nombreProducto);
+
+                ResultSet rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    double valor = rs.getDouble("valor_producto");
+                    conexion.close();
+                    return valor;
+                }
+
+                conexion.close();
+            } catch (SQLException e) {
+                System.err.println("Error al buscar producto en la base de datos: " + e.getMessage());
+            }
+        }
+
+        return -1.0; // Retorna -1.0 si el producto no se encontró en la base de datos
+    }
+
+    private void limpiarTextArea3() {
+        textArea3.setText("");
+        productosAgregados.clear();
+        totalAcumulado = 0.0;
     }
 
     public static void main(String[] args) {
