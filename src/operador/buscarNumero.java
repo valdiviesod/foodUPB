@@ -25,7 +25,7 @@ public class buscarNumero {
                     JOptionPane.showMessageDialog(null, "El número " + numeroBuscado + " se encuentra en la base de datos.");
                 } else {
                     JOptionPane.showMessageDialog(null, "El número " + numeroBuscado + " no se encuentra en la base de datos.");
-                    abrirVistaRealizarPedido(); // Abre la ventana realizarPedido
+                    abrirVentanaRegistroUsuario(); // Abre la ventana registroUsuario
                     cerrarVentanaActual(); // Cierra la ventana actual
                 }
             }
@@ -61,17 +61,25 @@ public class buscarNumero {
         return false;
     }
 
-    private void abrirVistaRealizarPedido() {
-        realizarPedido realizarPedidoView = new realizarPedido();
-        JFrame frame = new JFrame("Realizar Pedido");
+    private void abrirVentanaRegistroUsuario() {
+        registroUsuario registroUsuarioView = new registroUsuario();
+        JFrame frame = new JFrame("Registro de Cliente");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
-        frame.setContentPane(realizarPedidoView.getPanel());
+        frame.setContentPane(registroUsuarioView.getPanelUsuario());
         frame.pack();
-        frame.setSize(800, 400); // Establece el tamaño deseado
+        frame.setSize(800, 400);
         frame.setVisible(true);
     }
 
     private void cerrarVentanaActual() {
         SwingUtilities.getWindowAncestor(panel1).dispose();
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Buscar Número");
+        frame.setContentPane(new buscarNumero().getPanel());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
     }
 }
