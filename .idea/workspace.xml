@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e14af69c-8617-452a-8d3b-bade9bc4ba15" name="Changes" comment="Falta añadir producto y el menu completo del crud">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/admin/clientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/clientes.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/admin/pedidos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/pedidos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/loginForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/loginForm.form" afterDir="false" />
+>>>>>>> c0710fafa60a6c98daf7c7332d8a7b25d50f7455
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +121,7 @@
       <workItem from="1697517393991" duration="7916000" />
       <workItem from="1697559794228" duration="1097000" />
       <workItem from="1697632875297" duration="3479000" />
-      <workItem from="1697644890400" duration="716000" />
+      <workItem from="1697644890400" duration="1391000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
