@@ -29,6 +29,7 @@ public class usuarios {
     private JButton clientesButton;
     private JButton irAPedidosButton;
     private JButton irAProductosButton;
+    private JButton irAMenuButton;
 
     public usuarios() {
         cargarDatosEnJTable();
@@ -123,6 +124,21 @@ public class usuarios {
                 productosFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
                 productosFrame.pack();
                 productosFrame.setVisible(true);
+            }
+        });
+
+        irAMenuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Crear una instancia de la clase menu
+                menu menuView = new menu();
+
+                // Crear un JFrame para mostrar la vista de menú
+                JFrame menuFrame = new JFrame("Menú");
+                menuFrame.setContentPane(menuView.getPanel());
+                menuFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
+                menuFrame.pack();
+                menuFrame.setVisible(true);
             }
         });
 

@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e14af69c-8617-452a-8d3b-bade9bc4ba15" name="Changes" comment="Falta añadir producto y el menu completo del crud">
-      <change afterPath="$PROJECT_DIR$/src/admin/crearProducto.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/admin/crearProducto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/menu.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/productos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/productos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/usuarios.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/usuarios.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/usuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/usuarios.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
