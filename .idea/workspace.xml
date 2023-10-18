@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e14af69c-8617-452a-8d3b-bade9bc4ba15" name="Changes" comment="Sirve todo el crud y el añadir en proceso">
-      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-j-8.0.33.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/admin/pedidos.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/admin/pedidos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/admin/productos.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/admin/productos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="e14af69c-8617-452a-8d3b-bade9bc4ba15" name="Changes" comment="Falta añadir producto y el menu completo del crud">
+      <change afterPath="$PROJECT_DIR$/src/admin/crearProducto.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/admin/crearProducto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foodUPB.iml" beforeDir="false" afterPath="$PROJECT_DIR$/foodUPB.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/clientes.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/clientes.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/clientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/clientes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/crearCliente.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/crearCliente.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/crearCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/crearCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/usuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/usuarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/productos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/productos.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +23,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
@@ -146,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697501705501</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Falta añadir producto y el menu completo del crud">
+      <option name="closed" value="true" />
+      <created>1697598070740</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1697598070741</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,12 +155,24 @@
   <component name="UnknownFeatures">
     <option featureType="dependencySupport" implementationName="executable:docker" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="Ahi vamo" />
     <MESSAGE value="Ahi vamo 2" />
     <MESSAGE value="Ahi vamo con el CRUD" />
     <MESSAGE value="Sirve todo el crud y el añadir en proceso" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Falta añadir producto y el menu completo del crud" />
+    <option name="LAST_COMMIT_MESSAGE" value="Falta añadir producto y el menu completo del crud" />
   </component>
 </project>

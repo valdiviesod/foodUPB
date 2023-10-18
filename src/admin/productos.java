@@ -60,9 +60,16 @@ public class productos {
         addProductoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Agregar aquí la lógica para agregar un nuevo producto
+                crearProducto crearProductoView = new crearProducto();
+                JFrame frame = new JFrame("Añadir Usuario");
+                frame.setContentPane(crearProductoView.getPanel());
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
+                frame.pack();
+                frame.setVisible(true);
             }
         });
+
+
     }
 
     public void cargarDatosEnJTable() {
@@ -169,6 +176,8 @@ public class productos {
             }
         }
     }
+
+
 
 
     public Container getPanel() {
