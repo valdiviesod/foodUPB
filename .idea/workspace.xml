@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e14af69c-8617-452a-8d3b-bade9bc4ba15" name="Changes" comment="Falta añadir producto y el menu completo del crud">
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/src/user/loginForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/loginForm.form" afterDir="false" />
-=======
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_16_23__3_25_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_16_23__3_25_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/admin/pedidos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/pedidos.java" afterDir="false" />
->>>>>>> 87060e30c549650f3c22792030c0aaa3daf5cf67
+      <change beforePath="$PROJECT_DIR$/src/user/loginForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/loginForm.form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
