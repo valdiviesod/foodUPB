@@ -56,6 +56,9 @@ public class registroUsuario {
                         tipoclientetxt.setText("");
 
                         JOptionPane.showMessageDialog(null, "Cliente registrado con éxito");
+
+                        // Redirigir a la ventana realizarPedido
+                        abrirVistaRealizarPedido();
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                         JOptionPane.showMessageDialog(null, "Error al registrar el cliente: " + ex.getMessage());
@@ -73,5 +76,37 @@ public class registroUsuario {
 
     public JPanel getPanelUsuario() {
         return panelUsuario;
+    }
+
+    private void abrirVistaRealizarPedido() {
+        JFrame currentFrame = (JFrame) SwingUtilities.getRoot(panelUsuario);
+
+        if (currentFrame != null) {
+            currentFrame.dispose();
+
+            // Crea una instancia de la vista "realizarPedido" y la muestra
+            realizarPedido realizarPedidoView = new realizarPedido();
+            JFrame frame = new JFrame("Realizar Pedido");
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
+            frame.setContentPane(realizarPedidoView.getPanel());
+            frame.pack();
+            frame.setSize(800, 400);
+            frame.setVisible(true);
+        }
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                JFrame frame = new JFrame("Registro de Usuario");
+                registroUsuario registroUsuarioView = new registroUsuario();
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setContentPane(registroUsuarioView.getPanelUsuario());
+                frame.pack();
+                frame.setSize(800, 400);
+                frame.setVisible(true);
+            }
+        });
     }
 }
