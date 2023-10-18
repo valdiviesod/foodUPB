@@ -29,20 +29,22 @@ public class pedidos {
 
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID Pedido");
-        modelo.addColumn("ID Producto");
-        modelo.addColumn("ID Menú");
+        modelo.addColumn("Producto");
+        modelo.addColumn("Cliente");
         modelo.addColumn("Cantidad");
 
         try {
             Statement statement = conexion.createStatement();
-            String query = "SELECT * FROM pedido";
+            String query = "SELECT pedido.idpedido, productos.nombre_producto, clientes.nombre, pedido.cantidad FROM pedido " +
+                    "INNER JOIN productos ON pedido.idproducto = productos.idproductos " +
+                    "INNER JOIN clientes ON pedido.idclientes = clientes.idclientes";
             ResultSet resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
                 modelo.addRow(new Object[]{
                         resultSet.getInt("idpedido"),
-                        resultSet.getInt("idproducto"),
-                        resultSet.getInt("idmenu"),
+                        resultSet.getString("nombre_producto"),
+                        resultSet.getString("nombre"),
                         resultSet.getInt("cantidad")
                 });
             }
