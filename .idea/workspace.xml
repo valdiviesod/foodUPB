@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e14af69c-8617-452a-8d3b-bade9bc4ba15" name="Changes" comment="Falta añadir producto y el menu completo del crud">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/operador/realizarPedido.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/operador/realizarPedido.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/operador/realizarPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/operador/realizarPedido.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +64,7 @@
       <recent name="$PROJECT_DIR$/lib" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ColaCocina">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="ColaCocina" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ColaCocina" />
       <module name="foodUPB" />
@@ -92,8 +94,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ColaCocina" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ColaCocina" />
         <item itemvalue="Application.loginForm" />
       </list>
     </recent_temporary>

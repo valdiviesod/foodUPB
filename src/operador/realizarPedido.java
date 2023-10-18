@@ -1,6 +1,7 @@
 package operador;
 
 import databaseConexion.dbConexion;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,8 +9,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class realizarPedido {
     private JTextArea textArea1;
@@ -23,8 +26,10 @@ public class realizarPedido {
     private JTextArea textArea3;
     private JTextField textField3;
     private JButton limpiarButton;
+    private JButton realizarPedidoButton;
+    private JTextField textField4;
     private double totalAcumulado = 0.0;
-    private Map<String, Double> productosAgregados = new HashMap<>();
+    private List<ProductoPedido> productosAgregados = new ArrayList<>();
 
     public JPanel getPanel() {
         return jpanel1;
@@ -58,6 +63,13 @@ public class realizarPedido {
             @Override
             public void actionPerformed(ActionEvent e) {
                 limpiarTextArea3();
+            }
+        });
+
+        realizarPedidoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                realizarPedido();
             }
         });
     }
@@ -141,19 +153,16 @@ public class realizarPedido {
 
         double totalProducto = valorProducto * cantidad;
 
-        if (productosAgregados.containsKey(producto)) {
-            cantidad += productosAgregados.get(producto);
-            totalProducto += productosAgregados.get(producto) * valorProducto;
-            totalAcumulado -= productosAgregados.get(producto) * valorProducto;
-        }
-
-        productosAgregados.put(producto, totalProducto);
+        ProductoPedido productoPedido = new ProductoPedido(producto, cantidad, totalProducto);
+        productosAgregados.add(productoPedido);
         totalAcumulado += totalProducto;
 
         textArea3.setText("");
 
-        for (Map.Entry<String, Double> entry : productosAgregados.entrySet()) {
-            textArea3.append("Producto: " + entry.getKey() + ", Cantidad: " + cantidad + ", Total: $" + entry.getValue() + "\n");
+        for (ProductoPedido pedido : productosAgregados) {
+            textArea3.append("Producto: " + pedido.getNombre() +
+                    ", Cantidad: " + pedido.getCantidad() +
+                    ", Total: $" + pedido.getTotal() + "\n");
         }
 
         textArea3.append("Total acumulado: $" + totalAcumulado + "\n");
@@ -185,6 +194,116 @@ public class realizarPedido {
         return -1.0; // Retorna -1.0 si el producto no se encontró en la base de datos
     }
 
+    private void realizarPedido() {
+        String nombreCliente = textField4.getText();
+        String direccionCliente = "Dirección de ejemplo";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String fechaActual = sdf.format(new Date());
+
+        if (nombreCliente.isEmpty() || productosAgregados.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos y agregue productos.");
+            return;
+        }
+
+        Connection conexion = dbConexion.obtenerConexion();
+
+        if (conexion != null) {
+            try {
+                int idCliente = insertarCliente(conexion, nombreCliente, direccionCliente);
+
+                if (idCliente == -1) {
+                    JOptionPane.showMessageDialog(null, "Error al insertar/buscar el cliente.");
+                    return;
+                }
+
+                for (ProductoPedido pedido : productosAgregados) {
+                    String nombreProducto = pedido.getNombre();
+                    double totalProducto = pedido.getTotal();
+                    int cantidad = pedido.getCantidad();
+
+                    int idProducto = obtenerIdProducto(conexion, nombreProducto);
+
+                    if (idProducto == -1) {
+                        JOptionPane.showMessageDialog(null, "Error al obtener el ID del producto.");
+                        return;
+                    }
+
+                    if (!insertarPedido(conexion, idProducto, idCliente, cantidad, totalProducto, fechaActual)) {
+                        JOptionPane.showMessageDialog(null, "Error al insertar el pedido.");
+                        return;
+                    }
+                }
+
+                JOptionPane.showMessageDialog(null, "Pedido realizado con éxito.");
+
+                textField4.setText("");
+                limpiarTextArea3();
+            } catch (SQLException e) {
+                System.err.println("Error al realizar el pedido: " + e.getMessage());
+            } finally {
+                try {
+                    conexion.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private int insertarCliente(Connection conexion, String nombreCliente, String direccionCliente) throws SQLException {
+        String consulta = "SELECT idclientes FROM clientes WHERE nombre = ?";
+        PreparedStatement ps = conexion.prepareStatement(consulta);
+        ps.setString(1, nombreCliente);
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            return rs.getInt("idclientes");
+        } else {
+            String insercion = "INSERT INTO clientes (nombre, direccion) VALUES (?, ?)";
+            PreparedStatement psInsercion = conexion.prepareStatement(insercion, PreparedStatement.RETURN_GENERATED_KEYS);
+            psInsercion.setString(1, nombreCliente);
+            psInsercion.setString(2, direccionCliente);
+
+            int filasAfectadas = psInsercion.executeUpdate();
+
+            if (filasAfectadas > 0) {
+                ResultSet generatedKeys = psInsercion.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    return generatedKeys.getInt(1);
+                }
+            }
+        }
+
+        return -1;
+    }
+
+    private int obtenerIdProducto(Connection conexion, String nombreProducto) throws SQLException {
+        String consulta = "SELECT idproductos FROM productos WHERE nombre_producto = ?";
+        PreparedStatement ps = conexion.prepareStatement(consulta);
+        ps.setString(1, nombreProducto);
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            return rs.getInt("idproductos");
+        } else {
+            return -1; // Producto no encontrado
+        }
+    }
+
+    private boolean insertarPedido(Connection conexion, int idProducto, int idCliente, int cantidad, double totalProducto, String fecha) throws SQLException {
+        String consulta = "INSERT INTO pedido (idproducto, idclientes, cantidad, Fecha, total) VALUES (?, ?, ?, ?, ?)";
+        PreparedStatement ps = conexion.prepareStatement(consulta);
+        ps.setInt(1, idProducto);
+        ps.setInt(2, idCliente);
+        ps.setInt(3, cantidad);
+        ps.setString(4, fecha);
+        ps.setDouble(5, totalProducto);
+
+        int filasAfectadas = ps.executeUpdate();
+
+        return filasAfectadas > 0;
+    }
+
     private void limpiarTextArea3() {
         textArea3.setText("");
         productosAgregados.clear();
@@ -198,5 +317,29 @@ public class realizarPedido {
                 new realizarPedido();
             }
         });
+    }
+
+    private class ProductoPedido {
+        private String nombre;
+        private int cantidad;
+        private double total;
+
+        public ProductoPedido(String nombre, int cantidad, double total) {
+            this.nombre = nombre;
+            this.cantidad = cantidad;
+            this.total = total;
+        }
+
+        public String getNombre() {
+            return nombre;
+        }
+
+        public int getCantidad() {
+            return cantidad;
+        }
+
+        public double getTotal() {
+            return total;
+        }
     }
 }
