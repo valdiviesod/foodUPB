@@ -4,11 +4,11 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import databaseConexion.dbConexion;
 
-class registroUsuario {
+public class registroUsuario {
     private JTextField nombretxt;
     private JTextField numerotxt;
     private JTextField apellidostxt;
@@ -31,41 +31,46 @@ class registroUsuario {
                 String municipio = municipiotxt.getText();
                 String tipoCliente = tipoclientetxt.getText();
 
-                try {
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tu_base_de_datos", "tu_usuario", "tu_contraseña");
+                Connection con = dbConexion.obtenerConexion();
 
-                    String sql = "INSERT INTO clientes (telefono, nombre, apellido, tipo_cliente, direccion, barrio, municipio) VALUES (?, ?, ?, ?, ?, ?, ?)";
-                    PreparedStatement statement = con.prepareStatement(sql);
-                    statement.setString(1, numero);
-                    statement.setString(2, nombre);
-                    statement.setString(3, apellido);
-                    statement.setString(4, tipoCliente);
-                    statement.setString(5, direccion);
-                    statement.setString(6, barrio);
-                    statement.setString(7, municipio);
+                if (con != null) {
+                    try {
+                        String sql = "INSERT INTO clientes (telefono, nombre, apellido, tipo_cliente, direccion, barrio, municipio) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                        PreparedStatement statement = con.prepareStatement(sql);
+                        statement.setString(1, numero);
+                        statement.setString(2, nombre);
+                        statement.setString(3, apellido);
+                        statement.setString(4, tipoCliente);
+                        statement.setString(5, direccion);
+                        statement.setString(6, barrio);
+                        statement.setString(7, municipio);
 
-                    statement.executeUpdate();
+                        statement.executeUpdate();
 
-                    con.close();
+                        nombretxt.setText("");
+                        numerotxt.setText("");
+                        apellidostxt.setText("");
+                        direcciontxt.setText("");
+                        barriotxt.setText("");
+                        municipiotxt.setText("");
+                        tipoclientetxt.setText("");
 
-                    nombretxt.setText("");
-                    numerotxt.setText("");
-                    apellidostxt.setText("");
-                    direcciontxt.setText("");
-                    barriotxt.setText("");
-                    municipiotxt.setText("");
-                    tipoclientetxt.setText("");
-
-                    JOptionPane.showMessageDialog(null, "Cliente registrado con éxito.");
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Error al registrar el cliente: " + ex.getMessage());
+                        JOptionPane.showMessageDialog(null, "Cliente registrado con éxito");
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                        JOptionPane.showMessageDialog(null, "Error al registrar el cliente: " + ex.getMessage());
+                    } finally {
+                        try {
+                            con.close();
+                        } catch (SQLException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
                 }
             }
         });
     }
 
-    // Agrega este método para obtener el panel
     public JPanel getPanelUsuario() {
         return panelUsuario;
     }
