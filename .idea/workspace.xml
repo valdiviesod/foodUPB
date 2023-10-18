@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e14af69c-8617-452a-8d3b-bade9bc4ba15" name="Changes" comment="Falta añadir producto y el menu completo del crud">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_16_23__3_25_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_16_23__3_25_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/operador/buscarNumero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/operador/buscarNumero.java" afterDir="false" />
     </list>
@@ -116,6 +118,7 @@
       <workItem from="1697517393991" duration="7916000" />
       <workItem from="1697559794228" duration="1097000" />
       <workItem from="1697632875297" duration="3479000" />
+      <workItem from="1697644890400" duration="716000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />

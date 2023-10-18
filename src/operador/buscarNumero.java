@@ -21,12 +21,13 @@ public class buscarNumero {
             public void actionPerformed(ActionEvent e) {
                 String numeroBuscado = textField1.getText();
 
-                if (verificarNumeroEnBaseDeDatos(numeroBuscado)) {
-                    JOptionPane.showMessageDialog(null, "El número " + numeroBuscado + " se encuentra en la base de datos.");
+                String nombreCliente = obtenerNombreCliente(numeroBuscado);
+
+                if (nombreCliente != null) {
+                    JOptionPane.showMessageDialog(null, "El número " + numeroBuscado + " pertenece a " + nombreCliente);
+                    abrirVentanaRealizarPedido();
                 } else {
                     JOptionPane.showMessageDialog(null, "El número " + numeroBuscado + " no se encuentra en la base de datos.");
-                    abrirVentanaRegistroUsuario(); // Abre la ventana registroUsuario
-                    cerrarVentanaActual(); // Cierra la ventana actual
                 }
             }
         });
@@ -36,24 +37,21 @@ public class buscarNumero {
         return panel1;
     }
 
-    private boolean verificarNumeroEnBaseDeDatos(String numero) {
+    private String obtenerNombreCliente(String numero) {
         Connection conexion = dbConexion.obtenerConexion();
 
         if (conexion != null) {
             try {
-                String consulta = "SELECT telefono FROM clientes WHERE telefono = ?";
+                String consulta = "SELECT nombre FROM clientes WHERE telefono = ?";
                 PreparedStatement ps = conexion.prepareStatement(consulta);
                 ps.setString(1, numero);
                 ResultSet rs = ps.executeQuery();
 
                 if (rs.next()) {
                     // El número se encuentra en la base de datos
+                    String nombreCliente = rs.getString("nombre");
                     conexion.close();
-
-                    // Redirigir a la ventana realizarPedido
-                    abrirVentanaRealizarPedido();
-
-                    return true;
+                    return nombreCliente;
                 }
 
                 conexion.close();
@@ -62,39 +60,25 @@ public class buscarNumero {
             }
         }
 
-        return false;
+        return null;
     }
+
     private void abrirVentanaRealizarPedido() {
-        // Obtiene la ventana raíz de la ventana actual
-        JFrame frame = (JFrame) SwingUtilities.getRoot(panel1);
+        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(panel1);
+        frame.dispose(); // Cierra la ventana actual
 
-        if (frame != null) {
-            // Cierra la ventana actual
-            frame.dispose();
-
-            // Crea una instancia de la vista "realizarPedido" y la muestra
-            realizarPedido realizarPedidoView = new realizarPedido();
-            JFrame newFrame = new JFrame("Realizar Pedido");
-            newFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
-            newFrame.setContentPane(realizarPedidoView.getPanel()); // Asume que hay un método getPanel() en realizarPedido
-            newFrame.pack();
-            newFrame.setSize(800, 400); // Establece el tamaño deseado
-            newFrame.setVisible(true);
-        }
-    }
-
-    private void abrirVentanaRegistroUsuario() {
-        registroUsuario registroUsuarioView = new registroUsuario();
-        JFrame frame = new JFrame("Registro de Cliente");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
-        frame.setContentPane(registroUsuarioView.getPanelUsuario());
-        frame.pack();
-        frame.setSize(800, 400);
-        frame.setVisible(true);
-    }
-
-    private void cerrarVentanaActual() {
-        SwingUtilities.getWindowAncestor(panel1).dispose();
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                realizarPedido pedidoView = new realizarPedido();
+                JFrame newFrame = new JFrame("Realizar Pedido");
+                newFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Cerrar la aplicación por completo
+                newFrame.setContentPane(pedidoView.getPanel());
+                newFrame.pack();
+                newFrame.setSize(800, 400);
+                newFrame.setVisible(true);
+            }
+        });
     }
 
     public static void main(String[] args) {
