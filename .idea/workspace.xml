@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e14af69c-8617-452a-8d3b-bade9bc4ba15" name="Changes" comment="Falta añadir producto y el menu completo del crud">
-<<<<<<< HEAD
+      <change afterPath="$PROJECT_DIR$/src/cocina/verCocina.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cocina/verCocina.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/operador/registroUsuario.form" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/operador/registroUsuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/operador/buscarNumero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/operador/buscarNumero.java" afterDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/src/cocina/verCocina.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cocina/verCocina.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ColaCocina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Estructuras/ColaCocina.java" afterDir="false" />
->>>>>>> e8cd5da514b17206a0179d1a08ce9eab6c4843dd
+      <change beforePath="$PROJECT_DIR$/src/operador/buscarNumero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/operador/buscarNumero.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
