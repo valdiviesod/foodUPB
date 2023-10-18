@@ -12,13 +12,14 @@ import java.sql.SQLException;
 
 public class realizarPedido {
     private JTextArea textArea1;
-    private JTextField textField1;
     private JButton realizarPedidoButton;
     private JTextField textField2;
     private JTextArea textArea2;
     private JPanel jpanel1;
     private JButton buscarButton;
     private JButton mostrarProductosButton;
+    private JTextField textField1;
+    private JTextArea textArea3;
 
     public JPanel getPanel() {
         return jpanel1;
