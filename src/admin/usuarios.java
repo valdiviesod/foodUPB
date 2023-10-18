@@ -95,6 +95,38 @@ public class usuarios {
                 clientesFrame.setVisible(true);
             }
         });
+
+        irAPedidosButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Crear una instancia de la clase pedidos
+                pedidos pedidosView = new pedidos();
+
+                // Crear un JFrame para mostrar la vista de pedidos
+                JFrame pedidosFrame = new JFrame("Pedidos");
+                pedidosFrame.setContentPane(pedidosView.getPanel());
+                pedidosFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
+                pedidosFrame.pack();
+                pedidosFrame.setVisible(true);
+            }
+        });
+
+        irAProductosButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Crear una instancia de la clase productos
+                productos productosView = new productos();
+
+                // Crear un JFrame para mostrar la vista de productos
+                JFrame productosFrame = new JFrame("Productos");
+                productosFrame.setContentPane(productosView.getPanel());
+                productosFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
+                productosFrame.pack();
+                productosFrame.setVisible(true);
+            }
+        });
+
+
     }
 
     public void cargarDatosEnJTable() {

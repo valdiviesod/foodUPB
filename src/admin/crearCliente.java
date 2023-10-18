@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class crearCliente {
-    private JButton añadirButton;
+    private JButton addClienteButton;
     private JTextField telefonoText;
     private JTextField nombreText;
     private JTextField apellidoText;
@@ -22,15 +22,16 @@ public class crearCliente {
     private JPanel mainPanel;
 
     public crearCliente() {
-        añadirButton.addActionListener(new ActionListener() {
+        this.mainPanel = mainPanel;
+        addClienteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                añadirClienteABaseDeDatos();
+                addClienteABaseDeDatos();
             }
         });
     }
 
-    public void añadirClienteABaseDeDatos() {
+    public void addClienteABaseDeDatos() {
         Connection conexion = dbConexion.obtenerConexion();
         if (conexion == null) {
             return;
@@ -72,14 +73,6 @@ public class crearCliente {
                 e.printStackTrace();
             }
         }
-    }
-
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Crear Cliente");
-        frame.setContentPane(new crearCliente().mainPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
     }
 
     public Container getPanel() {
