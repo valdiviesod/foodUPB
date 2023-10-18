@@ -2,6 +2,8 @@ package cocina;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +14,7 @@ import Estructuras.ColaCocina; // Importa la clase de la cola de cocina
 public class verCocina {
     private JTable tablaCocina;
     private JPanel mainPanel;
+    private JButton marcarComoListoButton;
 
     public verCocina() {
         // Llama a un método para cargar los pedidos de la base de datos en la cola de cocina
@@ -19,6 +22,30 @@ public class verCocina {
 
         // Llama a un método para cargar los pedidos de la cola de cocina en la tabla
         cargarPedidosEnTablaCocina();
+
+        marcarComoListoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                marcarPedidoComoListo();
+            }
+        });
+    }
+
+    private void marcarPedidoComoListo() {
+        int filaSeleccionada = tablaCocina.getSelectedRow();
+        if (filaSeleccionada == -1) {
+            JOptionPane.showMessageDialog(mainPanel, "Por favor, selecciona un pedido de la tabla.");
+            return;
+        }
+
+        int idPedido = (int) tablaCocina.getValueAt(filaSeleccionada, 0); // Suponiendo que la columna 0 contiene el ID del pedido.
+
+        // Aquí debes implementar la lógica para marcar el pedido como listo en tu sistema.
+        // Esto podría implicar actualizar una base de datos, cambiar el estado del pedido, etc.
+
+        // Elimina la fila seleccionada de la tabla para ocultar el pedido.
+        DefaultTableModel modelo = (DefaultTableModel) tablaCocina.getModel();
+        modelo.removeRow(filaSeleccionada);
     }
 
     public void cargarPedidosEnColaCocina() {
@@ -73,15 +100,46 @@ public class verCocina {
         modelo.addColumn("ID Pedido");
         modelo.addColumn("Prioridad");
         modelo.addColumn("Tiempo de Cocción");
+        modelo.addColumn("Tipo de Pedido");
+        modelo.addColumn("Producto");
+        modelo.addColumn("Cliente");
 
-        // Obtén los pedidos de la cola de cocina
+        // Obtén los pedidos de la cola de cocina y la información del tipo de pedido, producto y cliente
         ColaCocina.Pedido pedido = ColaCocina.extraer();
+        Connection conexion = dbConexion.obtenerConexion();
+
         while (pedido != null) {
-            modelo.addRow(new Object[] {
-                    pedido.numero,
-                    pedido.prioridad,
-                    pedido.tiempoCoccion
-            });
+            try {
+                // Obtén los datos de la base de datos utilizando JOIN
+                Statement statement = conexion.createStatement();
+                String query = "SELECT p.idpedido, c.tipo_cliente, p.tipo_pedido, pr.nombre_producto, c.nombre " +
+                        "FROM pedido p " +
+                        "JOIN productos pr ON p.idproducto = pr.idproductos " +
+                        "JOIN clientes c ON p.idclientes = c.idclientes " +
+                        "WHERE p.idpedido = " + pedido.numero;
+
+                ResultSet resultSet = statement.executeQuery(query);
+
+                if (resultSet.next()) {
+                    String tipoPedido = resultSet.getString("tipo_pedido");
+                    String producto = resultSet.getString("nombre_producto");
+                    String cliente = resultSet.getString("nombre");
+
+                    modelo.addRow(new Object[] {
+                            pedido.numero,
+                            pedido.prioridad,
+                            pedido.tiempoCoccion,
+                            tipoPedido,
+                            producto,
+                            cliente
+                    });
+                }
+                resultSet.close();
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
             pedido = ColaCocina.extraer();
         }
 
