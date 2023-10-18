@@ -143,8 +143,9 @@ public class verCocina {
             pedido = ColaCocina.extraer();
         }
 
-        tablaCocina.setModel(modelo);
+        tablaCocina.setModel(modelo); // Establece el modelo en la tabla
     }
+
 
     public JPanel getMainPanel() {
         return mainPanel;
