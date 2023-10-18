@@ -35,17 +35,6 @@ public class clientes {
     public clientes() {
         cargarDatosEnJTable();
 
-        try {
-            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-        UIManager.put("nimbusBase", new Color(100, 100, 100));
-        UIManager.put("nimbusBlueGrey", new Color(190, 190, 190));
-        UIManager.put("control", new Color(200, 200, 200));
-
 
         clientesTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override

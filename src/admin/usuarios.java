@@ -1,3 +1,4 @@
+
 package admin;
 
 import databaseConexion.dbConexion;
@@ -29,10 +30,8 @@ public class usuarios {
     private JButton clientesButton;
     private JButton irAPedidosButton;
     private JButton irAProductosButton;
-
     public usuarios() {
         cargarDatosEnJTable();
-
         // Agrega un ListSelectionListener a la tabla
         tablaUsuarios.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
