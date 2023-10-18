@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import admin.usuarios;
 import databaseConexion.dbConexion;
 import operador.buscarNumero;
+import cocina.verCocina;
 
 public class loginForm {
     private JPanel panel1;
@@ -33,6 +34,10 @@ public class loginForm {
                     } else if (usuarioIngresado.toLowerCase().endsWith("@admin.com")) {
                         // Redirigir al usuario a la ventana de usuarios
                         abrirVistaUsuarios();
+
+                    } else if (usuarioIngresado.toLowerCase().endsWith("@cocina.com")) {
+                        // Redirigir al usuario a la ventana de usuarios
+                        abrirVistaVerCocina();
                     } else {
                         JOptionPane.showMessageDialog(null, "Acceso concedido");
                     }
@@ -110,4 +115,24 @@ public class loginForm {
         frame.setSize(800, 400); // Establece el tamaño deseado
         frame.setVisible(true);
     }
+
+    private void abrirVistaVerCocina() {
+        // Obtiene la ventana actual
+        Window window = SwingUtilities.windowForComponent(panel1);
+
+        if (window instanceof JFrame) {
+            // Cierra la ventana actual
+            ((JFrame) window).dispose();
+        }
+
+        // Crea una instancia de la vista "verCocina" y la muestra
+        verCocina cocinaView = new verCocina();
+        JFrame frame = new JFrame("Vista de Cocina");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
+        frame.setContentPane(cocinaView.getMainPanel());
+        frame.pack();
+        frame.setSize(800, 400); // Establece el tamaño deseado
+        frame.setVisible(true);
+    }
+
 }
