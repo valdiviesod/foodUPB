@@ -80,6 +80,14 @@
               <text value="Limpiar"/>
             </properties>
           </component>
+          <component id="c5443" class="javax.swing.JButton" binding="mostrarMasVendidosButton">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Mostrar"/>
+            </properties>
+          </component>
         </children>
       </grid>
       <grid id="4a646" layout-manager="GridLayoutManager" row-count="9" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

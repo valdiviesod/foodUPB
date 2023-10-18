@@ -28,6 +28,7 @@ public class realizarPedido {
     private JButton limpiarButton;
     private JButton realizarPedidoButton;
     private JTextField textField4;
+    private JButton mostrarMasVendidosButton;
     private double totalAcumulado = 0.0;
     private List<ProductoPedido> productosAgregados = new ArrayList<>();
 
@@ -70,6 +71,13 @@ public class realizarPedido {
             @Override
             public void actionPerformed(ActionEvent e) {
                 realizarPedido();
+            }
+        });
+
+        mostrarMasVendidosButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mostrarProductosMasPedidos();
             }
         });
     }
@@ -308,6 +316,45 @@ public class realizarPedido {
         textArea3.setText("");
         productosAgregados.clear();
         totalAcumulado = 0.0;
+    }
+
+    private void mostrarProductosMasPedidos() {
+        String nombreCliente = textField4.getText();
+
+        if (nombreCliente.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese el nombre del cliente.");
+            return;
+        }
+
+        Connection conexion = dbConexion.obtenerConexion();
+
+        if (conexion != null) {
+            try {
+                String consulta = "SELECT p.nombre_producto, SUM(pd.cantidad) AS total_cantidad " +
+                        "FROM pedido AS pd " +
+                        "JOIN productos AS p ON pd.idproducto = p.idproductos " +
+                        "JOIN clientes AS c ON pd.idclientes = c.idclientes " +
+                        "WHERE c.nombre = ? " +
+                        "GROUP BY p.nombre_producto " +
+                        "ORDER BY total_cantidad DESC";
+
+                PreparedStatement ps = conexion.prepareStatement(consulta);
+                ps.setString(1, nombreCliente);
+                ResultSet rs = ps.executeQuery();
+
+                textArea1.setText(""); // Limpiar el textArea1
+
+                while (rs.next()) {
+                    String nombreProducto = rs.getString("nombre_producto");
+                    int totalCantidad = rs.getInt("total_cantidad");
+                    textArea1.append(nombreProducto + ": Cantidad Total - " + totalCantidad + "\n");
+                }
+
+                conexion.close();
+            } catch (SQLException e) {
+                System.err.println("Error al obtener los productos más pedidos: " + e.getMessage());
+            }
+        }
     }
 
     public static void main(String[] args) {
