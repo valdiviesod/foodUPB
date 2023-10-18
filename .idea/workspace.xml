@@ -6,6 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="e14af69c-8617-452a-8d3b-bade9bc4ba15" name="Changes" comment="Falta añadir producto y el menu completo del crud">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/src/operador/buscarNumero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/operador/buscarNumero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/operador/realizarPedido.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/operador/realizarPedido.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/operador/realizarPedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/operador/realizarPedido.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/admin/clientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/clientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/usuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/usuarios.java" afterDir="false" />
+>>>>>>> 3c51f8e784890d2126d95aab57ada99ffb065fdd
+>>>>>>> 0d80d2ee2d0a367e00ebac2d7bb145299e91819e
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
