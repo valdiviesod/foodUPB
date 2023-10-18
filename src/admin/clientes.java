@@ -30,8 +30,11 @@ public class clientes {
     private JTable clientesTable;
     private JPanel mainPanel;
 
+
+
     public clientes() {
         cargarDatosEnJTable();
+
 
         clientesTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
