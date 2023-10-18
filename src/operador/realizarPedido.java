@@ -347,7 +347,7 @@ public class realizarPedido {
                 while (rs.next()) {
                     String nombreProducto = rs.getString("nombre_producto");
                     int totalCantidad = rs.getInt("total_cantidad");
-                    textArea1.append(nombreProducto + ": Cantidad Total - " + totalCantidad + "\n");
+                    textArea1.append(nombreProducto + ": Cantidad Total: " + totalCantidad + "\n");
                 }
 
                 conexion.close();

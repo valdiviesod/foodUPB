@@ -13,6 +13,7 @@ import admin.usuarios;
 import databaseConexion.dbConexion;
 import operador.buscarNumero;
 import cocina.verCocina;
+import domicilio.domiClass;
 
 public class loginForm {
     private JPanel panel1;
@@ -34,6 +35,10 @@ public class loginForm {
                     } else if (usuarioIngresado.toLowerCase().endsWith("@admin.com")) {
                         // Redirigir al usuario a la ventana de usuarios
                         abrirVistaUsuarios();
+
+                    } else if (usuarioIngresado.toLowerCase().endsWith("@domi.com")) {
+                        // Redirigir al usuario a la ventana de usuarios
+                        abrirVistaDomi();
 
                     } else if (usuarioIngresado.toLowerCase().endsWith("@cocina.com")) {
                         // Redirigir al usuario a la ventana de usuarios
@@ -135,4 +140,22 @@ public class loginForm {
         frame.setVisible(true);
     }
 
+    private void abrirVistaDomi() {
+        // Obtiene la ventana actual
+        Window window = SwingUtilities.windowForComponent(panel1);
+
+        if (window instanceof JFrame) {
+            // Cierra la ventana actual
+            ((JFrame) window).dispose();
+        }
+
+        // Crea una instancia de la vista "domiClass" y la muestra
+        domiClass domiClassView = new domiClass();
+        JFrame frame = new JFrame("Vista de Domicilio");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
+        frame.setContentPane(domiClassView.getPanel1());
+        frame.pack();
+        frame.setSize(800, 400); // Establece el tamaño deseado
+        frame.setVisible(true);
+    }
 }

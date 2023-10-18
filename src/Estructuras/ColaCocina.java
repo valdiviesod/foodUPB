@@ -1,10 +1,5 @@
 package Estructuras;// Cola de despacho de cocina
 
-// Una vez finalizada una llamada, el pedido se pasa a la cola de despacho en la cocina. La cola de despacho se presenta al
-//personal en los monitores de la cocina y esta se ordena con las siguientes prioridades: Siempre un pedido de un cliente
-//premium encolará de primero. En la cocina hay cuatro bancos de trabajo, tres con prioridad para comidas rápidas (cocc ión
-//entre 1 y 5 minutos) y uno para comidas más complejas (cocción superior a 5 minutos). La cola de despacho debe priorizar
-//los pedidos por cuadrante y asignar su cocción de acuerdo con el banco de trabajo, optimizando el tiempo de entrega.
 public class ColaCocina {
 
     public class Pedido {
