@@ -31,14 +31,22 @@ public class verCocina {
 
         try {
             Statement statement = conexion.createStatement();
-            String query = "SELECT idpedido, tipo_cliente, tiempo_coccion FROM pedido p " +
+            String query = "SELECT idpedido, tipo_cliente, tipo_pedido FROM pedido p " +
                     "JOIN clientes c ON p.idclientes = c.idclientes";
             ResultSet resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
                 int idPedido = resultSet.getInt("idpedido");
                 int tipoCliente = resultSet.getInt("tipo_cliente");
-                int tiempoCoccion = resultSet.getInt("tiempo_coccion");
+                String tipoPedido = resultSet.getString("tipo_pedido");
+                int tiempoCoccion;
+
+                // Asigna el tiempo de cocción según el tipo de pedido
+                if ("rapido".equals(tipoPedido)) {
+                    tiempoCoccion = 1 + (int)(Math.random() * 5); // Entre 1 y 5 minutos
+                } else {
+                    tiempoCoccion = 6 + (int)(Math.random() * 10); // Superior a 5 minutos
+                }
 
                 // Inserta el pedido en la cola de cocina con la prioridad adecuada
                 if (tipoCliente == 1) {
@@ -58,6 +66,7 @@ public class verCocina {
             }
         }
     }
+
 
     public void cargarPedidosEnTablaCocina() {
         DefaultTableModel modelo = new DefaultTableModel();
