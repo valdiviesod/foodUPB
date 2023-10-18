@@ -49,6 +49,10 @@ public class buscarNumero {
                 if (rs.next()) {
                     // El número se encuentra en la base de datos
                     conexion.close();
+
+                    // Redirigir a la ventana realizarPedido
+                    abrirVentanaRealizarPedido();
+
                     return true;
                 }
 
@@ -59,6 +63,24 @@ public class buscarNumero {
         }
 
         return false;
+    }
+    private void abrirVentanaRealizarPedido() {
+        // Obtiene la ventana raíz de la ventana actual
+        JFrame frame = (JFrame) SwingUtilities.getRoot(panel1);
+
+        if (frame != null) {
+            // Cierra la ventana actual
+            frame.dispose();
+
+            // Crea una instancia de la vista "realizarPedido" y la muestra
+            realizarPedido realizarPedidoView = new realizarPedido();
+            JFrame newFrame = new JFrame("Realizar Pedido");
+            newFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
+            newFrame.setContentPane(realizarPedidoView.getPanel()); // Asume que hay un método getPanel() en realizarPedido
+            newFrame.pack();
+            newFrame.setSize(800, 400); // Establece el tamaño deseado
+            newFrame.setVisible(true);
+        }
     }
 
     private void abrirVentanaRegistroUsuario() {
