@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.awt.BorderLayout;
+
 
 import admin.usuarios;
 import databaseConexion.dbConexion;
@@ -151,11 +153,15 @@ public class loginForm {
 
         // Crea una instancia de la vista "domiClass" y la muestra
         domiClass domiClassView = new domiClass();
+        JPanel panelToShow = domiClassView.getPanel1(); // Elige jpanel1 o jpanel2 según tus necesidades
+
         JFrame frame = new JFrame("Vista de Domicilio");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
-        frame.setContentPane(domiClassView.getPanel1());
+        frame.setContentPane(panelToShow); // Establece el panel deseado como contenido principal
         frame.pack();
         frame.setSize(800, 400); // Establece el tamaño deseado
         frame.setVisible(true);
     }
+
+
 }
