@@ -10,9 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class realizarPedido {
     private JTextArea textArea1;
@@ -30,7 +28,7 @@ public class realizarPedido {
     private JTextField textField4;
     private JButton mostrarMasVendidosButton;
     private double totalAcumulado = 0.0;
-    private List<ProductoPedido> productosAgregados = new ArrayList<>();
+    private Node<ProductoPedido> productosAgregados = null;
 
     public JPanel getPanel() {
         return jpanel1;
@@ -162,18 +160,34 @@ public class realizarPedido {
         double totalProducto = valorProducto * cantidad;
 
         ProductoPedido productoPedido = new ProductoPedido(producto, cantidad, totalProducto);
-        productosAgregados.add(productoPedido);
+        productosAgregados = insertarNodo(productosAgregados, productoPedido);
         totalAcumulado += totalProducto;
 
         textArea3.setText("");
 
-        for (ProductoPedido pedido : productosAgregados) {
+        Node<ProductoPedido> current = productosAgregados;
+        while (current != null) {
+            ProductoPedido pedido = current.data;
             textArea3.append("Producto: " + pedido.getNombre() +
                     ", Cantidad: " + pedido.getCantidad() +
                     ", Total: $" + pedido.getTotal() + "\n");
+            current = current.next;
         }
 
         textArea3.append("Total acumulado: $" + totalAcumulado + "\n");
+    }
+
+    private Node<ProductoPedido> insertarNodo(Node<ProductoPedido> cabeza, ProductoPedido datos) {
+        if (cabeza == null) {
+            return new Node<>(datos);
+        } else {
+            Node<ProductoPedido> actual = cabeza;
+            while (actual.next != null) {
+                actual = actual.next;
+            }
+            actual.next = new Node<>(datos);
+            return cabeza;
+        }
     }
 
     private double buscarValorProducto(String nombreProducto) {
@@ -208,7 +222,7 @@ public class realizarPedido {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String fechaActual = sdf.format(new Date());
 
-        if (nombreCliente.isEmpty() || productosAgregados.isEmpty()) {
+        if (nombreCliente.isEmpty() || productosAgregados == null) {
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos y agregue productos.");
             return;
         }
@@ -224,10 +238,11 @@ public class realizarPedido {
                     return;
                 }
 
-                for (ProductoPedido pedido : productosAgregados) {
-                    String nombreProducto = pedido.getNombre();
-                    double totalProducto = pedido.getTotal();
-                    int cantidad = pedido.getCantidad();
+                Node<ProductoPedido> current = productosAgregados;
+                while (current != null) {
+                    String nombreProducto = current.data.getNombre();
+                    double totalProducto = current.data.getTotal();
+                    int cantidad = current.data.getCantidad();
 
                     int idProducto = obtenerIdProducto(conexion, nombreProducto);
 
@@ -240,6 +255,8 @@ public class realizarPedido {
                         JOptionPane.showMessageDialog(null, "Error al insertar el pedido.");
                         return;
                     }
+
+                    current = current.next;
                 }
 
                 JOptionPane.showMessageDialog(null, "Pedido realizado con éxito.");
@@ -314,7 +331,7 @@ public class realizarPedido {
 
     private void limpiarTextArea3() {
         textArea3.setText("");
-        productosAgregados.clear();
+        productosAgregados = null;
         totalAcumulado = 0.0;
     }
 
@@ -387,6 +404,16 @@ public class realizarPedido {
 
         public double getTotal() {
             return total;
+        }
+    }
+
+    private static class Node<T> {
+        T data;
+        Node<T> next;
+
+        public Node(T data) {
+            this.data = data;
+            this.next = null;
         }
     }
 }
