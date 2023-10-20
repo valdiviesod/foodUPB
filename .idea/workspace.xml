@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e14af69c-8617-452a-8d3b-bade9bc4ba15" name="Changes" comment="Falta añadir producto y el menu completo del crud">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_16_23__3_25_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_16_23__3_25_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Estructuras/ColaCocina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Estructuras/ColaCocina.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/crearCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/crearCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/pedidos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/pedidos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/productos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/productos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/usuarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/usuarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cocina/verCocina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cocina/verCocina.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domicilio/domiClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domicilio/domiClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/operador/buscarNumero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/operador/buscarNumero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/operador/registroUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/operador/registroUsuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user/loginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/loginForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/databaseConexion/dbConexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/databaseConexion/dbConexion.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,6 +122,7 @@
       <workItem from="1697694981148" duration="6000" />
       <workItem from="1697750339947" duration="158000" />
       <workItem from="1697763526791" duration="930000" />
+      <workItem from="1697813133261" duration="70000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
