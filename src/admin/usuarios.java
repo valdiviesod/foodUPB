@@ -32,19 +32,16 @@ public class usuarios {
     private JButton irAProductosButton;
     public usuarios() {
         cargarDatosEnJTable();
-        // Agrega un ListSelectionListener a la tabla
         tablaUsuarios.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 int selectedRow = tablaUsuarios.getSelectedRow();
                 if (selectedRow >= 0) {
-                    // Obtiene los valores de la fila seleccionada
                     Object idUsuario = tablaUsuarios.getValueAt(selectedRow, 0);
                     Object nombreUsuario = tablaUsuarios.getValueAt(selectedRow, 1);
                     Object tipoUsuario = tablaUsuarios.getValueAt(selectedRow, 2);
                     Object contraUsuario = tablaUsuarios.getValueAt(selectedRow, 3);
 
-                    // Actualiza los campos de texto con los valores obtenidos
                     fieldIdUsuario.setText(idUsuario.toString());
                     fieldNombreUsuario.setText(nombreUsuario.toString());
                     fieldTipoUsuario.setText(tipoUsuario.toString());
@@ -53,7 +50,6 @@ public class usuarios {
             }
         });
 
-        // Agrega un ActionListener al botón de "Guardar Cambios"
         editarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -74,7 +70,7 @@ public class usuarios {
                 crearUsuario crearUsuarioView = new crearUsuario();
                 JFrame frame = new JFrame("Añadir Usuario");
                 frame.setContentPane(crearUsuarioView.getPanel());
-                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);
             }
@@ -83,10 +79,8 @@ public class usuarios {
         clientesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Crear una instancia de la clase clientes
                 clientes clientesView = new clientes();
 
-                // Crear un JFrame para mostrar la vista de clientes
                 JFrame clientesFrame = new JFrame("Clientes");
                 clientesFrame.setContentPane(clientesView.getPanel());
                 clientesFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
@@ -98,10 +92,8 @@ public class usuarios {
         irAPedidosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Crear una instancia de la clase pedidos
                 pedidos pedidosView = new pedidos();
 
-                // Crear un JFrame para mostrar la vista de pedidos
                 JFrame pedidosFrame = new JFrame("Pedidos");
                 pedidosFrame.setContentPane(pedidosView.getPanel());
                 pedidosFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
@@ -113,10 +105,8 @@ public class usuarios {
         irAProductosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Crear una instancia de la clase productos
                 productos productosView = new productos();
 
-                // Crear un JFrame para mostrar la vista de productos
                 JFrame productosFrame = new JFrame("Productos");
                 productosFrame.setContentPane(productosView.getPanel());
                 productosFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
@@ -184,7 +174,7 @@ public class usuarios {
 
             if (rowsUpdated > 0) {
                 JOptionPane.showMessageDialog(null, "Cambios guardados exitosamente.");
-                cargarDatosEnJTable(); // Actualizar la tabla con los nuevos datos
+                cargarDatosEnJTable();
             } else {
                 JOptionPane.showMessageDialog(null, "No se pudieron guardar los cambios.");
             }
@@ -219,7 +209,7 @@ public class usuarios {
 
                     if (rowsDeleted > 0) {
                         JOptionPane.showMessageDialog(null, "Usuario eliminado exitosamente.");
-                        cargarDatosEnJTable(); // Actualizar la tabla después de la eliminación
+                        cargarDatosEnJTable();
                     } else {
                         JOptionPane.showMessageDialog(null, "No se pudo eliminar el usuario.");
                     }

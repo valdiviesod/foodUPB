@@ -63,7 +63,7 @@ public class productos {
                 crearProducto crearProductoView = new crearProducto();
                 JFrame frame = new JFrame("Añadir Usuario");
                 frame.setContentPane(crearProductoView.getPanel());
-                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);
             }

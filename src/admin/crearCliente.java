@@ -53,7 +53,7 @@ public class crearCliente {
 
             if (rowsInserted > 0) {
                 JOptionPane.showMessageDialog(null, "Cliente añadido exitosamente.");
-                // Puedes limpiar los campos de texto después de añadir el cliente si lo deseas.
+
                 telefonoText.setText("");
                 nombreText.setText("");
                 apellidoText.setText("");

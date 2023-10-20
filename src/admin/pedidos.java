@@ -81,7 +81,7 @@ public class pedidos {
 
                     if (rowsDeleted > 0) {
                         JOptionPane.showMessageDialog(null, "Pedido eliminado exitosamente.");
-                        cargarDatosEnJTable(); // Actualizar la tabla después de la eliminación
+                        cargarDatosEnJTable();
                     } else {
                         JOptionPane.showMessageDialog(null, "No se pudo eliminar el pedido.");
                     }

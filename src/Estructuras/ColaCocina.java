@@ -1,10 +1,10 @@
-package Estructuras;// Cola de despacho de cocina
+package Estructuras;
 
 public class ColaCocina {
 
     public class Pedido {
         public int numero;
-        public int prioridad; // 1 para premium, 2 para normal
+        public int prioridad;
         public int tiempoCoccion;
 
         Pedido(int numero, int prioridad, int tiempoCoccion) {
@@ -80,9 +80,4 @@ public class ColaCocina {
             System.out.println("La cola de despacho está vacía.");
         }
     }
-
-//Una vez están lista la comida se entrega a los agentes domiciliarios. Los agentes domiciliarios estarán asignados a los
-//pedidos que se puedan acumular en rango de 5 minutos. En caso acumular más de un pedido en los 5 minutos, se indicará
-//al domiciliario la ruta de acuerdo con los cuadrantes (barrios de Bucaramanga) el orden de entrega
-
 }

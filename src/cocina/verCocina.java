@@ -17,10 +17,8 @@ public class verCocina {
     private JButton marcarComoListoButton;
 
     public verCocina() {
-        // Llama a un método para cargar los pedidos de la base de datos en la cola de cocina
         cargarPedidosEnColaCocina();
 
-        // Llama a un método para cargar los pedidos de la cola de cocina en la tabla
         cargarPedidosEnTablaCocina();
 
         marcarComoListoButton.addActionListener(new ActionListener() {
@@ -40,10 +38,6 @@ public class verCocina {
 
         int idPedido = (int) tablaCocina.getValueAt(filaSeleccionada, 0); // Suponiendo que la columna 0 contiene el ID del pedido.
 
-        // Aquí debes implementar la lógica para marcar el pedido como listo en tu sistema.
-        // Esto podría implicar actualizar una base de datos, cambiar el estado del pedido, etc.
-
-        // Elimina la fila seleccionada de la tabla para ocultar el pedido.
         DefaultTableModel modelo = (DefaultTableModel) tablaCocina.getModel();
         modelo.removeRow(filaSeleccionada);
     }
@@ -75,7 +69,6 @@ public class verCocina {
                     tiempoCoccion = 6 + (int)(Math.random() * 10); // Superior a 5 minutos
                 }
 
-                // Inserta el pedido en la cola de cocina con la prioridad adecuada
                 if (tipoCliente == 1) {
                     colaCocina.insertar(idPedido, 1, tiempoCoccion); // Prioridad 1 para clientes premium
                 } else {
@@ -104,13 +97,11 @@ public class verCocina {
         modelo.addColumn("Producto");
         modelo.addColumn("Cliente");
 
-        // Obtén los pedidos de la cola de cocina y la información del tipo de pedido, producto y cliente
         ColaCocina.Pedido pedido = ColaCocina.extraer();
         Connection conexion = dbConexion.obtenerConexion();
 
         while (pedido != null) {
             try {
-                // Obtén los datos de la base de datos utilizando JOIN
                 Statement statement = conexion.createStatement();
                 String query = "SELECT p.idpedido, c.tipo_cliente, p.tipo_pedido, pr.nombre_producto, c.nombre " +
                         "FROM pedido p " +
@@ -143,7 +134,7 @@ public class verCocina {
             pedido = ColaCocina.extraer();
         }
 
-        tablaCocina.setModel(modelo); // Establece el modelo en la tabla
+        tablaCocina.setModel(modelo);
     }
 
 

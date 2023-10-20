@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.awt.BorderLayout;
 
-
 import admin.usuarios;
 import databaseConexion.dbConexion;
 import operador.buscarNumero;
@@ -32,18 +31,12 @@ public class loginForm {
 
                 if (verificarCredenciales(usuarioIngresado, contrasenaIngresada)) {
                     if (usuarioIngresado.toLowerCase().endsWith("@operador.com")) {
-                        // Redirigir al usuario a la ventana buscarNumero
                         abrirVistaBuscarNumero();
                     } else if (usuarioIngresado.toLowerCase().endsWith("@admin.com")) {
-                        // Redirigir al usuario a la ventana de usuarios
                         abrirVistaUsuarios();
-
                     } else if (usuarioIngresado.toLowerCase().endsWith("@domi.com")) {
-                        // Redirigir al usuario a la ventana de usuarios
                         abrirVistaDomi();
-
                     } else if (usuarioIngresado.toLowerCase().endsWith("@cocina.com")) {
-                        // Redirigir al usuario a la ventana de usuarios
                         abrirVistaVerCocina();
                     } else {
                         JOptionPane.showMessageDialog(null, "Acceso concedido");
@@ -71,7 +64,6 @@ public class loginForm {
                 ResultSet rs = ps.executeQuery();
 
                 if (rs.next()) {
-                    // Usuario y contraseña coinciden en la base de datos
                     conexion.close();
                     return true;
                 }
@@ -86,82 +78,68 @@ public class loginForm {
     }
 
     private void abrirVistaBuscarNumero() {
-        // Obtiene la ventana actual
         Window window = SwingUtilities.windowForComponent(panel1);
 
         if (window instanceof JFrame) {
-            // Cierra la ventana actual
             ((JFrame) window).dispose();
         }
 
         buscarNumero buscarNumeroView = new buscarNumero();
         JFrame frame = new JFrame("Vista de Búsqueda de Número");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setContentPane(buscarNumeroView.getPanel());
         frame.pack();
-        frame.setSize(800, 400); // Establece el tamaño deseado
+        frame.setSize(800, 400);
         frame.setVisible(true);
     }
 
-
     private void abrirVistaUsuarios() {
-        // Obtiene la ventana actual
         Window window = SwingUtilities.windowForComponent(panel1);
 
         if (window instanceof JFrame) {
-            // Cierra la ventana actual
             ((JFrame) window).dispose();
         }
 
-        // Crea una instancia de la vista "usuarios" y la muestra
         usuarios usuariosView = new usuarios();
         JFrame frame = new JFrame("Vista de Usuarios");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setContentPane(usuariosView.getPanel());
         frame.pack();
-        frame.setSize(800, 400); // Establece el tamaño deseado
+        frame.setSize(800, 400);
         frame.setVisible(true);
     }
 
     private void abrirVistaVerCocina() {
-        // Obtiene la ventana actual
         Window window = SwingUtilities.windowForComponent(panel1);
 
         if (window instanceof JFrame) {
-            // Cierra la ventana actual
             ((JFrame) window).dispose();
         }
 
-        // Crea una instancia de la vista "verCocina" y la muestra
         verCocina cocinaView = new verCocina();
         JFrame frame = new JFrame("Vista de Cocina");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setContentPane(cocinaView.getMainPanel());
         frame.pack();
-        frame.setSize(800, 400); // Establece el tamaño deseado
+        frame.setSize(800, 400);
         frame.setVisible(true);
     }
 
     private void abrirVistaDomi() {
-        // Obtiene la ventana actual
         Window window = SwingUtilities.windowForComponent(panel1);
 
         if (window instanceof JFrame) {
-            // Cierra la ventana actual
             ((JFrame) window).dispose();
         }
 
-        // Crea una instancia de la vista "domiClass" y la muestra
         domiClass domiClassView = new domiClass();
-        JPanel panelToShow = domiClassView.getPanel1(); // Elige jpanel1 o jpanel2 según tus necesidades
+        JPanel panelToShow = domiClassView.getPanel1();
 
         JFrame frame = new JFrame("Vista de Domicilio");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
-        frame.setContentPane(panelToShow); // Establece el panel deseado como contenido principal
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setContentPane(panelToShow);
         frame.pack();
-        frame.setSize(800, 400); // Establece el tamaño deseado
+        frame.setSize(800, 400);
         frame.setVisible(true);
     }
-
-
 }

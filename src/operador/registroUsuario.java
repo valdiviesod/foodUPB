@@ -57,7 +57,6 @@ public class registroUsuario {
 
                         JOptionPane.showMessageDialog(null, "Cliente registrado con éxito");
 
-                        // Redirigir a la ventana realizarPedido
                         abrirVistaRealizarPedido();
                     } catch (SQLException ex) {
                         ex.printStackTrace();
@@ -84,10 +83,9 @@ public class registroUsuario {
         if (currentFrame != null) {
             currentFrame.dispose();
 
-            // Crea una instancia de la vista "realizarPedido" y la muestra
             realizarPedido realizarPedidoView = new realizarPedido();
             JFrame frame = new JFrame("Realizar Pedido");
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Cerrar solo esta ventana al salir
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.setContentPane(realizarPedidoView.getPanel());
             frame.pack();
             frame.setSize(800, 400);

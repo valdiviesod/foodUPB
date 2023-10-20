@@ -49,7 +49,6 @@ public class buscarNumero {
                 ResultSet rs = ps.executeQuery();
 
                 if (rs.next()) {
-                    // El número se encuentra en la base de datos
                     String nombreCliente = rs.getString("nombre");
                     conexion.close();
                     return nombreCliente;
@@ -66,14 +65,14 @@ public class buscarNumero {
 
     private void abrirVentanaRealizarPedido() {
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(panel1);
-        frame.dispose(); // Cierra la ventana actual
+        frame.dispose();
 
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 realizarPedido pedidoView = new realizarPedido();
                 JFrame newFrame = new JFrame("Realizar Pedido");
-                newFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Cerrar la aplicación por completo
+                newFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 newFrame.setContentPane(pedidoView.getPanel());
                 newFrame.pack();
                 newFrame.setSize(800, 400);
@@ -84,14 +83,14 @@ public class buscarNumero {
 
     private void abrirVentanaRegistroUsuario() {
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(panel1);
-        frame.dispose(); // Cierra la ventana actual
+        frame.dispose();
 
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 registroUsuario registroUsuarioView = new registroUsuario();
                 JFrame newFrame = new JFrame("Registro de Cliente");
-                newFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Cerrar la aplicación por completo
+                newFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 newFrame.setContentPane(registroUsuarioView.getPanelUsuario());
                 newFrame.pack();
                 newFrame.setSize(800, 400);

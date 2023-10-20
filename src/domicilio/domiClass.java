@@ -23,10 +23,7 @@ public class domiClass {
     private ColaCocina colaCocina;
 
     public domiClass() {
-        // Llama a un método para cargar los pedidos de la base de datos en la cola de cocina
         cargarPedidosEnColaCocina();
-
-        // Llama a un método para cargar los pedidos de la cola de cocina en la tabla
         cargarPedidosEnTablaCocina();
 
         verInformacionButton.addActionListener(new ActionListener() {
