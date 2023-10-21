@@ -19,6 +19,7 @@ public class domiClass {
     private JButton verInformacionButton;
     private JPanel jpanel1;
     private JButton pedidoEntregadoButton;
+    private JButton recargarPaginaButton;
 
     private ColaCocina colaCocina;
 
@@ -39,7 +40,25 @@ public class domiClass {
                 eliminarPedidoSeleccionado();
             }
         });
+        recargarPaginaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                recargarPedidosEnTablaCocina();
+            }
+        });
     }
+
+    public void recargarPedidosEnTablaCocina() {
+        DefaultTableModel modelo = (DefaultTableModel) table1.getModel();
+        modelo.setRowCount(0); // Borra todos los datos actuales de la tabla
+
+        cargarPedidosEnColaCocina(); // Carga nuevamente los pedidos en la cola
+        cargarPedidosEnTablaCocina(); // Carga los pedidos en la tabla
+
+        // Puedes mostrar un mensaje de éxito si lo deseas
+        JOptionPane.showMessageDialog(jpanel1, "La página se ha recargado exitosamente.");
+    }
+
 
     public void cargarPedidosEnColaCocina() {
         colaCocina = new ColaCocina(10);

@@ -15,6 +15,7 @@ public class verCocina {
     private JTable tablaCocina;
     private JPanel mainPanel;
     private JButton marcarComoListoButton;
+    private JButton recargarPaginaButton;
 
     public verCocina() {
         cargarPedidosEnColaCocina();
@@ -85,6 +86,24 @@ public class verCocina {
                 e.printStackTrace();
             }
         }
+
+        recargarPaginaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                recargarPedidosEnTablaCocina();
+            }
+        });
+
+    }
+
+    public void recargarPedidosEnTablaCocina() {
+        DefaultTableModel modelo = (DefaultTableModel) tablaCocina.getModel();
+        modelo.setRowCount(0); // Borra todos los datos actuales de la tabla
+
+        cargarPedidosEnColaCocina();
+        cargarPedidosEnTablaCocina();
+
+        JOptionPane.showMessageDialog(mainPanel, "La página se ha recargado exitosamente.");
     }
 
 
